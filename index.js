@@ -9,7 +9,7 @@ const PORT = process.env.PORT || 8080;
 // Fetch secret by name
 async function getSecret(secretName) {
   const [version] = await secretClient.accessSecretVersion({
-    name: `projects/${process.env.GOOGLE_CLOUD_PROJECT}/secrets/${secretName}/versions/latest`,
+    name: `projects/zoho-gpt-integration/secrets/${secretName}/versions/latest`,
   });
   return version.payload.data.toString('utf8');
 }
@@ -50,3 +50,4 @@ app.get('/oauth/callback', async (req, res) => {
 app.listen(PORT, () => {
   console.log(`🚀 App listening on port ${PORT}`);
 });
+
